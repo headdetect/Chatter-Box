@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_chat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/layoutChatListContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/LinearLayout2"
+        android:layout_alignParentTop="true"
+        android:background="@color/Light_Gray"
+        android:orientation="vertical" >
+
+
+        <ListView
+            android:id="@+id/lstChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+        </ListView>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="8dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+
+        <EditText
+            android:id="@+id/txtSay"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:hint="@string/txt_chat_hint"
+            android:imeOptions="actionNext"
+            android:singleLine="true" />
+
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_arrow"
+            android:text="@string/empty" />
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layoutChatListContainer"
+        android:background="@color/Gray"
+        android:paddingBottom="8dp" />
+
+</RelativeLayout>

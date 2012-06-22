@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="txt_chat_hint">Type a message</string>
+    <string name="app_name">Chat Client</string>
+    <string name="empty"> </string>
+    <string name="host">Host</string>
+    <string name="join">Join</string>
+    <string name="address">Server Address</string>
+    <string name="go">Go</string>
+    <string name="start_chatting">Start Chatting</string>
+
+</resources>

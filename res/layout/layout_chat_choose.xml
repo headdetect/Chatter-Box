@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RadioButton
+        android:id="@+id/rdioHost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/host" />
+
+    <RadioButton
+        android:id="@+id/rdioJoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rdioHost"
+        android:text="@string/join" />
+
+    <Button
+        android:id="@+id/btnChoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rdioJoin"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/blue_bg"
+        android:gravity="center_vertical|right"
+        android:paddingRight="8dp"
+        android:text="@string/start_chatting" />
+
+    <ProgressBar
+        android:id="@+id/progLoading"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/btnChoose"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="16dp"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/txtAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rdioHost"
+        android:layout_toRightOf="@+id/rdioHost"
+        android:ems="10"
+        android:hint="@string/address"
+        android:singleLine="true"
+        android:visibility="invisible" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/lblAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/rdioHost"
+        android:layout_alignBottom="@+id/rdioHost"
+        android:layout_alignLeft="@+id/txtAddress"
+        android:layout_marginLeft="8dp"
+        android:text="@string/app_name"
+        android:textColor="@color/Dark_Gray" />
+
+</RelativeLayout>
