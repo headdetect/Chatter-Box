@@ -4,6 +4,5 @@
    <color name="Light_Gray">#eee</color>
    <color name="Gray">#ddd</color>
    <color name="Dark_Gray">#7f7f7f</color>
-   <drawable name="transparent">#ff000000</drawable>
    <color name="Black">#000</color> 
 </resources>

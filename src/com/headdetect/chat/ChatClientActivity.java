@@ -1,3 +1,22 @@
+/*
+
+﻿ *    Copyright 2012 Brayden (headdetect) Lopez
+ *    
+ *    Dual-licensed under the Educational Community License, Version 2.0 and
+ *	the GNU General Public License Version 3 (the "Licenses"); you may
+ *	not use this file except in compliance with the Licenses. You may
+ *	obtain a copy of the Licenses at
+ *
+ *		http://www.opensource.org/licenses/ecl2.php
+ *		http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ *		Unless required by applicable law or agreed to in writing
+ *	software distributed under the Licenses are distributed on an "AS IS"
+ *	BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ *	or implied. See the Licenses for the specific language governing
+ *	permissions and limitations under the Licenses.
+ * 
+ */
 package com.headdetect.chat;
 
 import java.util.ArrayList;
@@ -5,7 +24,6 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -18,8 +36,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.TextView.OnEditorActionListener;
+import android.widget.Toast;
 
 import com.headdetect.chat.Listeners.ChatListener;
 import com.headdetect.chat.Listeners.ConnectionListener;
@@ -27,6 +45,10 @@ import com.headdetect.chat.Networking.Client;
 import com.headdetect.chat.Networking.Server;
 import com.headdetect.chat.Utilities.ServerUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ChatClientActivity.
+ */
 public class ChatClientActivity extends Activity {
 
 	// ===========================================================
@@ -40,11 +62,15 @@ public class ChatClientActivity extends Activity {
 	private ChatListAdapter chatAdapter;
 
 	private Button btnSendMessage;
+	
 	private EditText txtMessage;
+	
 	private ListView lstMessages;
+	
 	private Dialog mDialog;
 
 	private Client mClient;
+	
 	private Server mServer;
 
 	// ===========================================================
@@ -59,11 +85,12 @@ public class ChatClientActivity extends Activity {
 	// Methods for/from SuperClass/Interfaces
 	// ===========================================================
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if(Build.VERSION.SDK_INT >= 11)
-			setTheme(android.R.style.Theme_Holo_Light);
 		setContentView(R.layout.main);
 
 		showChatSelection();
@@ -167,6 +194,7 @@ public class ChatClientActivity extends Activity {
 		}
 	};
 
+	/** The chat listener. */
 	private final ChatListener chatListener = new ChatListener() {
 
 		@Override
@@ -175,6 +203,7 @@ public class ChatClientActivity extends Activity {
 		}
 	};
 
+	/** The connection listener. */
 	private final ConnectionListener connectionListener = new ConnectionListener() {
 
 		@Override
@@ -188,9 +217,16 @@ public class ChatClientActivity extends Activity {
 		}
 	};
 
+	/**
+	 * Send the message.
+	 */
 	public void sendMessage() {
 
 		String message = txtMessage.getText().toString();
+		
+		if(message == null || message.isEmpty())
+			return;
+		
 
 		try {
 			if (mServer != null) {
@@ -214,8 +250,14 @@ public class ChatClientActivity extends Activity {
 	// Inner and Anonymous Classes
 	// ===========================================================
 
+	/**
+	 * The Class SetupChat.
+	 */
 	private class SetupChat extends AsyncTask<Object, Void, Boolean> {
 
+		/* (non-Javadoc)
+		 * @see android.os.AsyncTask#doInBackground(Params[])
+		 */
 		@Override
 		protected Boolean doInBackground(Object... args) {
 
@@ -239,6 +281,9 @@ public class ChatClientActivity extends Activity {
 			return false;
 		}
 
+		/* (non-Javadoc)
+		 * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
+		 */
 		@Override
 		protected void onPostExecute(Boolean errors) {
 			

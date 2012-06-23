@@ -25,6 +25,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import android.util.Base64;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Crypto.
  */
@@ -35,7 +36,10 @@ public class Crypto {
 	// Constants
 	// ===========================================================
 	
+	/** The Constant CIPHER_TYPE. */
 	private static final String CIPHER_TYPE = "AES/CBC/PKCS5Padding";
+	
+	/** The Constant ENCRYPTION_TYPE. */
 	private static final String ENCRYPTION_TYPE = "AES";
 
 	// ===========================================================
@@ -60,7 +64,7 @@ public class Crypto {
 	
 
 	/**
-	 * Decrypts the tex.
+	 * Decrypts the text.
 	 *
 	 * @param text the text
 	 * @param key the key

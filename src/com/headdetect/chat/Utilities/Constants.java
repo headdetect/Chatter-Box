@@ -19,14 +19,20 @@
  */
 package com.headdetect.chat.Utilities;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Constants.
+ */
 public class Constants {
 	// ===========================================================
 	// Constants
 	// ===========================================================
 
+	/** The Constant PORT. */
 	public static final int PORT = 5050;
 	
-	public static final int MAX_USERS = 5;
+	/** The Constant MAX_USERS. */
+	public static final int MAX_USERS = 1;
 	
 	// ===========================================================
 	// Fields

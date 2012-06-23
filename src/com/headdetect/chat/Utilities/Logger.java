@@ -72,7 +72,7 @@ public class Logger {
 	// ===========================================================
 	
 	/**
-	 * Logs a message
+	 * Logs a message.
 	 *
 	 * @param message the message
 	 */

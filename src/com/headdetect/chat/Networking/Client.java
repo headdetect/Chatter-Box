@@ -34,6 +34,10 @@ import com.headdetect.chat.Listeners.ChatListener;
 import com.headdetect.chat.Listeners.ConnectionListener;
 import com.headdetect.chat.Utilities.Crypto;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Client.
+ */
 public class Client implements Runnable {
 
 	// ===========================================================
@@ -44,19 +48,37 @@ public class Client implements Runnable {
 	// Fields
 	// ===========================================================
 
+	/** The reader. */
 	private BufferedReader reader;
+	
+	/** The writer. */
 	private DataOutputStream writer;
+	
+	/** The disconnecting. */
 	private boolean disconnecting;
+	
+	/** The crypto key. */
 	private byte[] cryptoKey;
+	
+	/** The name. */
 	private String name;
 
+	/** The chat listener. */
 	private static ChatListener chatListener;
+	
+	/** The connection listener. */
 	private static ConnectionListener connectionListener;
 
 	// ===========================================================
 	// Constructors
 	// ===========================================================
 
+	/**
+	 * Instantiates a new client.
+	 *
+	 * @param s the socket
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public Client(Socket s) throws IOException {
 		
 		cryptoKey = new byte[16];
@@ -75,29 +97,65 @@ public class Client implements Runnable {
 	// Getter & Setter
 	// ===========================================================
 
+	/**
+	 * Gets the client name.
+	 *
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the client name.
+	 *
+	 * @param name the new name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Sets the chat listener.
+	 *
+	 * @param listener the new on chat listener
+	 */
 	public static void setOnChatListener(ChatListener listener) {
 		chatListener = listener;
 	}
 
+	/**
+	 * Sets the connection listener.
+	 *
+	 * @param listener the new on connection listener
+	 */
 	public static void setOnConnectionListener(ConnectionListener listener) {
 		connectionListener = listener;
 	}
 	
+	/**
+	 * Gets the reader.
+	 *
+	 * @return the reader
+	 */
 	public BufferedReader getReader() {
 		return reader;
 	}
 	
+	/**
+	 * Gets the key.
+	 *
+	 * @return the key
+	 */
 	public byte[] getKey(){
 		return cryptoKey;
 	}
+	
+	/**
+	 * Sets the key.
+	 *
+	 * @param key the new key
+	 */
 	public void setKey(byte[] key) {
 		cryptoKey = key;
 	}
@@ -107,6 +165,9 @@ public class Client implements Runnable {
 	// Methods for/from SuperClass/Interfaces
 	// ===========================================================
 
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run() {
 		if (connectionListener != null) {
@@ -141,6 +202,13 @@ public class Client implements Runnable {
 	// Methods
 	// ===========================================================
 
+	/**
+	 * Connect to the specified address, and returns a client.
+	 *
+	 * @param address the address
+	 * @return the connected client
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static Client connect(String address) throws IOException {
 		InetAddress localAddress = InetAddress.getByName(address);
 		InetSocketAddress localSocketAddress = new InetSocketAddress(localAddress, PORT);
@@ -155,10 +223,23 @@ public class Client implements Runnable {
 		return client;
 	}
 
+	/**
+	 * Send a message.
+	 *
+	 * @param message the message
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws Exception the exception
+	 */
 	public void sendMessage(String message) throws IOException, Exception {
+		if(message == null || message.isEmpty())
+			return;
+		
 		writer.writeUTF(Crypto.encrypt(message, cryptoKey));
 	}
 
+	/**
+	 * Disconnects the client.
+	 */
 	public void disconnect() {
 
 		if (connectionListener != null) {
