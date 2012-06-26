@@ -20,5 +20,7 @@ Chatter-Box
 
 # Image Gallery
 
-[Imgur](http://i.imgur.com/h5fUo.png)
+<img src='http://i.imgur.com/h5fUo.png' />
+<img src='http://i.imgur.com/MnRWq.png' />
+<img src='http://i.imgur.com/2jocI.png' />
  
