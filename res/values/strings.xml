@@ -2,7 +2,7 @@
 <resources>
 
     <string name="txt_chat_hint">Type a message</string>
-    <string name="app_name">Chat Client</string>
+    <string name="app_name">Chatterbox</string>
     <string name="empty"> </string>
     <string name="host">Host</string>
     <string name="join">Join</string>

@@ -199,7 +199,7 @@ public class ChatClientActivity extends Activity {
 
 		@Override
 		public void onChat(String message) {
-			chatAdapter.addItem(new ChatItem(message, "Chat Buddy"));
+			chatAdapter.addItem(new ChatItem("<html>" + message + "</html>", "Friend"));
 		}
 	};
 
@@ -227,6 +227,9 @@ public class ChatClientActivity extends Activity {
 		if(message == null || message.isEmpty())
 			return;
 		
+		message = message.replace(">", "&gt;");
+		message = message.replace("<", "&lt;");
+		
 
 		try {
 			if (mServer != null) {
@@ -239,7 +242,7 @@ public class ChatClientActivity extends Activity {
 				return;
 			}
 		} catch (Exception e) {
-			chatAdapter.addItem(new ChatItem(e.getMessage(), "Error"));
+			chatAdapter.addItem(new ChatItem(e.getMessage(), "<font color='red'>Error</font>"));
 			return;
 		}
 

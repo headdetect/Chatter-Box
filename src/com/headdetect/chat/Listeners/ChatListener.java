@@ -35,7 +35,7 @@ package com.headdetect.chat.Listeners;
 public interface ChatListener {
 	
 	/**
-	 * When a chat message has been recieved
+	 * When a chat message has been received
 	 *
 	 * @param message the message
 	 */

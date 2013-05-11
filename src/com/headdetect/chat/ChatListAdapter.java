@@ -22,6 +22,7 @@ package com.headdetect.chat;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,7 +96,7 @@ public class ChatListAdapter extends BaseAdapter {
 		TextView lblFrom = (TextView)covertView.findViewById(R.id.lblMessageFrom);
 		TextView lblDate = (TextView)covertView.findViewById(R.id.lblDate);
 		
-		lblMessage.setText(chat.getMessage());
+		lblMessage.setText(Html.fromHtml(chat.getMessage()));
 		lblFrom.setText(chat.getName());
 		lblDate.setText(chat.getDate());
 		
